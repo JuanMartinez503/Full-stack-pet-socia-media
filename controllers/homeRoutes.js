@@ -30,5 +30,14 @@ router.get('/login', (req, res) => {
 
     res.render('login');
 });
+router.get('/post', withAuth, async (req, res)=>{
+try {
+    
+    res.render('newPost')
+} catch (err) {
+    res.status(500).json(err)
+
+}
+})
 
 module.exports = router;
