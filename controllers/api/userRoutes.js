@@ -38,6 +38,7 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+})
   router.post("/logout", (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {
@@ -47,5 +48,5 @@ router.post("/login", async (req, res) => {
       res.status(404).end();
     }
   });
-});
+;
 module.exports = router;
