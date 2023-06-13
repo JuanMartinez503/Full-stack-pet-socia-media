@@ -1,0 +1,21 @@
+{{#each post}}
+<div>
+
+  <div>
+    <p>{{post.user_id}}</p>
+  </div>
+
+  <div>
+    <img src="{{post.image}}">
+  </div>
+
+  <div>
+    <p>{{post.description}}</p>
+  </div>
+
+  <div>
+    <p>{{format_date post.date_created}}</p>
+  </div>
+
+</div>
+{{/each}}
