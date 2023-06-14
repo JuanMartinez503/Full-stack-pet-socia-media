@@ -1,0 +1,35 @@
+<div>
+
+  <div>
+    <p>{{post.user.username}}</p>
+  </div>
+
+  <div>
+   <img src="{{post.image}}" >
+  </div>
+
+  <div>
+    <p>{{post.description}}</p>
+  </div>
+
+  <div>
+    <p>{{format_date post.date_created}}</p>
+  </div>
+
+</div>
+  {{#each post.comments}}
+  <div class="side-cont mx-5 my-2 p-2">
+    <div class="m-1">{{comment}}</div> 
+    <div class="m-1"> made by {{user.username}} on {{format_date comment_created}} </div>
+    <button class="text-center m-1 btn btn-sm btn-danger deleteButton" data-info="{{id}}">Delete</button>
+
+  </div>
+  {{/each}}
+  
+  <form class="m-4 ">
+    <textarea class="text-black rounded rem-3" id="comment" type="text"></textarea>
+    <br>
+    <button class="my-2 btn btn-primary" data-id="{{post.id}}" id="commentBtn">Add Comment</button>
+  </form>
+</div>
+<script src="/js/addComments.js"></script>
