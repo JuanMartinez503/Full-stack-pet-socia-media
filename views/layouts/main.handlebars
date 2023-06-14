@@ -5,15 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>P🐾ST</title>
-  <link rel=”stylesheet” href=”public/css/tailwind.css”/>
+  <link rel=”stylesheet” href=”/css/tailwind.css”/>
+  <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
   <header>
     <nav>
-                <a href="/">Home</a>
+      <a href="/">Home</a>
         {{#if logged_in}}
       
         <button class="btn btn-danger" id="logout">logout</button>
+
         {{else}}
         <a href="/login">login</a>
         {{/if}}
