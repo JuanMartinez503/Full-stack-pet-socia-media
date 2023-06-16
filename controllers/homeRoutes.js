@@ -32,14 +32,14 @@ router.get("/login", (req, res) => {
 });
 router.get("/post", withAuth, async (req, res) => {
   try {
-    res.render("newPost");
+    res.render("newPost",{      logged_in: req.session.logged_in});
   } catch (err) {
     res.status(500).json(err);
   }
 });
 router.get("/posts", withAuth, async (req, res) => {
   try {
-    res.render("newPost");
+    res.render("newPost", {      logged_in: req.session.logged_in});
   } catch (err) {
     res.status(500).json(err);
   }
