@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +8,42 @@
 <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/custom.css">
 </head>
-<body class="bg-gray-100">
-  <header class="bg-white border-b border-gray-300">
-    <nav class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <a href="/" class="text-lg font-semibold">Home</a>
-            <a href="/post" class="text-lg font-semibold">Create Post</a>
+<body class="bg-indigo-50">
+  <header class="relative bg-white border-b border-gray-300">
+    <nav class="fixed top-2 left-1 right-0 space-x-3">
+      
+      
 
-      <div class="flex items-center space-x-4">
-        {{#if logged_in}}
-        <button class="bg-blue-500 text-white px-4 py-2 rounded" id="logout">Logout</button>
-        {{else}}
-        <a href="/login" class="bg-blue-500 text-white px-4 py-2 rounded">Login</a>
-        {{/if}}
-      </div>
+      <button class="bg-indigo-400 hover:bg-indigo-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">
+        <a href="/" class="">Home</a>
+      </button>
+      
+      <button class="bg-indigo-400 hover:bg-indigo-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">
+        <a href="/profile" class="">Profile</a>
+      </button>
+
+      <button class="bg-indigo-300 hover:bg-indigo-500 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">
+        <a href="/post" class="">New Post</a>
+      </button>
+            
+            
+          <div class="fixed top-3 left-100 right-0">
+            {{#if logged_in}}
+              <button class="bg-cyan-400 hover:bg-cyan-600 text-white text-sm px-4 py-2 border rounded-full shadow-mg shadow-cyan-500/50" id="logout">Logout</button>
+            {{else}}
+            <button>
+              <a href="/login" class="bg-cyan-400 hover:bg-cyan-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-cyan-500/50">Login</a>
+            </button>
+            {{/if}}
+          </div>
     </nav>
   </header>
 
-  <main class="container mx-auto px-4 py-8">
+  <main class="relative columns-1">
+    <div class="absolute inset-12">
     <!-- Your main content goes here -->
     {{{body}}}
+    </div>
   </main>
 
   {{#if logged_in}}
