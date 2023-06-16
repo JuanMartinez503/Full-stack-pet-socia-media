@@ -20,6 +20,7 @@ router.post('/',withAuth, upload.single('postImg'),  async(req, res)=>{
             image: imgURL,
             user_id:req.session.user_id
         })
+        console.log(newPost);
         res.status(200).json(newPost)
     } catch (err) {
         res.status(500).json(err)
