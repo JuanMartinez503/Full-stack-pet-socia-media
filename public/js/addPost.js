@@ -1,3 +1,4 @@
+
 const createPost = async (e)=>{
     e.preventDefault()
 
@@ -6,10 +7,12 @@ const description = document.getElementById('description').value.trim()
 console.log(description, image)
 
 if (image && description){
-    const response = await fetch('api/posts',{
+    const form =document.getElementById('form')
+    const formData = new FormData(form)
+    const response = await fetch('/api/posts',{
         method: 'POST',
-        body: JSON.stringify({image, description}),
-        headers: {'Content-type': 'application/json'}
+        body: formData,
+        // headers: {'Content-type': 'multipart/form-data'}
     })
     if(response.ok){
         window.location.reload()
