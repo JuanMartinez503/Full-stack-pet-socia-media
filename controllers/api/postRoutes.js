@@ -5,11 +5,12 @@ const cloudinary = require('cloudinary').v2;
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 require('dotenv').config()
-cloudinary.config({ 
-    cloud_name: process.env.CLOUDNAME,
-    api_key: process.env.CLOUDAPIKEY, 
-    api_secret: process.env.CLOUDINARYSECRET
-  });
+
+    cloudinary.config({ 
+        cloud_name: 'dfteelkrz', 
+        api_key: '469238471379116', 
+        api_secret: 'KXrC8vfG8jgYFDRVattJ_145gDk' 
+      })
 router.post('/',withAuth, upload.single('postImg'),  async(req, res)=>{
     console.log(req.file);
     try {
@@ -35,7 +36,7 @@ router.delete('/:id', withAuth , async (req, res)=>{
             }
         })
         if (!postData) {
-            res.status(404).json({ message: 'No project found with this id!' });
+            res.status(404).json({ message: 'No post found with this id!' });
             return;
           } else{
             res.status(200).json(postData)
