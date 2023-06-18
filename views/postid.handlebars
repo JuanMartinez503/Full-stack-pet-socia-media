@@ -1,35 +1,105 @@
-<div>
-
+<div class="bg-white shadow-lg rounded-lg p-6 mb-8">
   <div>
-    <p>{{post.user.username}}</p>
+    <p class="my-4">Post created by: {{post.user.username}} <span class="text-gray-200">on {{format_date post.date_created}}</span></p>
   </div>
 
-  <div>
-   <img src="{{post.image}}" >
+  <div class="mb-8">
+    <img src="{{post.image}}">
   </div>
 
-  <div>
-    <p>{{post.description}}</p>
+  <div class="mb-8">
+    <p>{{post.user.username}} : {{post.description}}</p>
   </div>
-
-  <div>
-    <p>{{format_date post.date_created}}</p>
-  </div>
-
-</div>
+  {{#if post.comments.length}}
+  <h1 class="text-center mb-5 mt-5">Comments</h1>
   {{#each post.comments}}
-  <div class="side-cont mx-5 my-2 p-2">
+  <div class=" filter bg-gray-100 mx-5 my-2 p-2">
     <div class="m-1">{{comment}}</div> 
-    <div class="m-1"> made by {{user.username}} on {{format_date comment_created}} </div>
-    <button class="text-center m-1 btn btn-sm btn-danger deleteButton" data-info="{{id}}">Delete</button>
-
+    <div class="flex justify-end mr-5 text-gray-300">made by {{user.username}} on {{format_date comment_created}}</div>
+    <button class="text-center m-1 bg-red-500 text-white px-2 py-1 rounded deleteButton" data-info="{{id}}">Delete</button>
   </div>
   {{/each}}
+  {{/if}}
   
-  <form class="m-4 ">
-    <textarea class="text-black rounded rem-3" id="comment" type="text"></textarea>
+  <form class="m-4">
+    <textarea class="text-black border border-gray-800 rounded py-2 px-3" id="comment" type="text"></textarea>
     <br>
-    <button class="my-2 btn btn-primary" data-id="{{post.id}}" id="commentBtn">Add Comment</button>
+    <button class="my-2 bg-blue-500  text-white font-bold py-2 px-4 rounded" data-id="{{post.id}}" id="commentBtn">Add Comment</button>
+    <br>
+       
+      <p class="option">*Search more about the specific animal's breed or type.</p>
+    
+    <button class="m-1 bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded ml-4" id="expandBtn">Search</button>
+ 
   </form>
+  
+  <div id="searchResults" class="hidden mt-4">
+    <h3 class="text-lg font-bold">Search Results</h3>
+    <ul id="resultsList"></ul>
+    <p id="noResultsMsg" class="hidden">No results found</p>
+  </div>
 </div>
+
+<script>
+  const expandBtn = document.getElementById('expandBtn');
+  const searchResults = document.getElementById('searchResults');
+  const resultsList = document.getElementById('resultsList');
+  const noResultsMsg = document.getElementById('noResultsMsg');
+  const option = document.querySelector('.option')
+  let inputFieldAdded = false;
+
+  expandBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (!inputFieldAdded) {
+      const form = document.querySelector('.m-4');
+      const input = document.createElement('input');
+      const btn = document.createElement('button');
+              option.classList.add('hidden')
+
+      input.setAttribute('type', 'text');
+      input.setAttribute('placeholder', 'Enter your search query');
+      input.classList.add('my-2', 'border', 'border-gray-800', 'rounded', 'py-2', 'px-3');
+      btn.classList.add('m-1', 'bg-blue-500', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded');
+      btn.textContent = 'Search';
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const query = input.value.trim();
+        if (query !== '') {
+          // Perform search based on the query
+          console.log(`Performing search for: ${query}`);
+          const response = await fetch(`https://api.api-ninjas.com/v1/animals?name=${query}`, {
+            headers: {
+              'X-Api-Key': '28oWsA9ybqODZmOfNsFf9A==2GI7rSn5L5yvuGVz'
+            }
+          });
+          const data = await response.json();
+          console.log(data);
+
+          // Display search results
+          resultsList.innerHTML = '';
+          if ( data.length > 0) {
+            searchResults.classList.remove('hidden');
+            data.forEach(item => {
+              const listItem = document.createElement('li');
+
+              listItem.textContent = `${item.name} - Lifespan: ${item.characteristics.lifespan}, Scientific Name: ${item.taxonomy.scientific_name}, Temperament: ${item.characteristics.temperament}`;
+              resultsList.classList.add('bg-indigo-50')
+              resultsList.appendChild(listItem);
+            });
+            noResultsMsg.classList.add('hidden');
+          } else {
+            resultsList.innerHTML = 'No results found!';
+            noResultsMsg.classList.remove('hidden');
+          }
+        }
+      });
+      const wrapper = document.createElement('div');
+      wrapper.appendChild(input);
+      wrapper.appendChild(btn);
+      form.parentNode.insertBefore(wrapper, form.nextSibling);
+      expandBtn.classList.add('hidden');
+      inputFieldAdded = true;
+    }
+  });
+</script>
 <script src="/js/addComments.js"></script>
