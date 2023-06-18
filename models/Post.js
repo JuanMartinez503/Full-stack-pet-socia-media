@@ -11,12 +11,11 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    
     image: {
       type: DataTypes.STRING
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     date_created: {
       type: DataTypes.DATE,
@@ -39,5 +38,9 @@ Post.init(
     modelName: 'post',
   }
 );
+
+Post.addHook('beforeFind', (options) => {
+  options.order = [['date_created', 'DESC']];
+});
 
 module.exports = Post;

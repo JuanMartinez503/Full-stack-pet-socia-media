@@ -1,0 +1,25 @@
+  <div>
+    <h2>Welcome, {{username}}</h2>
+  </div>
+  {{#if posts.length}}
+  
+    <h3 class="text-center my-5">Current Post:</h3>
+  
+
+    {{#each posts as |post|}}
+    <div class=" bg-white p-6 mb-8 mx-auto shadow-lg rounded max-w-lg ">
+        <div class="mb-4 ml-7 text-center">
+     <a href="/posts/{{post.id}}" class="mb-4 text-center">
+      <img src="{{post.image}}" alt="">
+     </a> 
+    </div>
+    <p class="mx-6">{{post.description}}</p>
+      <div class="flex justify-end mx-6">
+        <button class="delete flex justify-end border rounded p-2 my-5 bg-red-500" data-id="{{post.id}}">DELETE</button>
+       
+      </div>
+    </div>
+    {{/each}}
+  
+  <script src="/js/deletePost.js"></script>
+  {{/if}}

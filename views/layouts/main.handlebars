@@ -8,9 +8,11 @@
 <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/custom.css">
 </head>
-<body class="bg-gradient-to-t from-red-200 to-red-50 h-[300vh]">
-  <header class="bg-white border-b border-gray-300">
-    <nav class="flex flex-row fixed top-2 left-1 right-0 space-x-3 z-10">
+
+<body class="bg-indigo-50">
+  <header class="relative bg-white border-b border-gray-300">
+    <nav class="fixed top-2 left-1 right-0 space-x-3">
+      
       
 
       <button class="bg-indigo-400 hover:bg-indigo-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">
@@ -21,7 +23,8 @@
         <a href="/profile" class="">Profile</a>
       </button>
 
-      <button class="bg-red-300 hover:bg-red-500 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">
+
+      <button class="bg-indigo-300 hover:bg-indigo-500 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">
         <a href="/post" class="">New Post</a>
       </button>
             
@@ -38,10 +41,11 @@
     </nav>
   </header>
 
-  <main class="flex flex-col z-0">
+
+  <main class="relative columns-1">
     <div class="absolute inset-12">
     <!-- Your main content goes here -->
-      {{{body}}}
+    {{{body}}}
     </div>
   </main>
 
