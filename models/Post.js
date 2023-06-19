@@ -12,10 +12,13 @@ Post.init(
       autoIncrement: true,
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
+
     },
     description: {
       type: DataTypes.TEXT,
+      allowNull: false
     },
     date_created: {
       type: DataTypes.DATE,
