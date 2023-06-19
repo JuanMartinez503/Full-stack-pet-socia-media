@@ -8,38 +8,42 @@
   <title>P🐾ST</title>
 <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/custom.css">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dfteelkrz/image/upload/v1687136380/4927675e866a6e79b9461861f42a1eae_iarjch.png" type="image.png">
 </head>
-<body class="bg-gradient-to-t from-red-200 to-red-50 h-[1000vh]">
-  <header class="bg-white border-b border-gray-300">
-    <nav class="flex flex-row fixed top-2 left-1 right-5 space-x-3 z-10">
+<body class="bg-gradient-to-t from-red-200 to-red-50 h-[800vh]">
+  <header class=" bg-gray-50 shadow-2xl border p-6 mb-6 z-10 border-gray-30 flex flex-row fixed top-0 left-0 right-0 space-x-3">
+    <nav class="">
       
-      <a href="/" class="">
+      <a href="/" class="my-2">
         <button class="bg-indigo-400 hover:bg-indigo-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">Home</button>
       </a>
       
-      <button class="bg-indigo-400 hover:bg-indigo-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">
-        <a href="/profile" class="">Profile</a>
+        <a href="/profile" class="mx-3">
+
+      <button class="bg-indigo-400 hover:bg-indigo-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">Profile
       </button>
+      </a>
 
       <button class="bg-red-300 hover:bg-red-500 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-indigo-500/50">
         <a href="/post" class="">New Post</a>
       </button>
             
             
-          <div class="fixed top-3 left-95 right-5">
+          <div class="fixed top-6 left-94 right-6">
+            <Span class="mx-3 text-lg">P🐾ST</Span>
             {{#if logged_in}}
-              <button class="bg-cyan-400 hover:bg-cyan-600 text-white text-sm px-4 py-2 border rounded-full shadow-mg shadow-cyan-500/50" id="logout">Logout</button>
+              <button class="bg-red-400 hover:bg-red-600 text-white text-sm px-4 py-2 border rounded-full shadow-mg shadow-red-500/50" id="logout">Logout</button>
             {{else}}
-            <button>
-              <a href="/login" class="bg-cyan-400 hover:bg-cyan-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-cyan-500/50">Login</a>
-            </button>
+            <a href="/login">
+              <button  class="bg-cyan-400 hover:bg-cyan-600 text-white text-sm px-4 py-2 border rounded-full shadow-md shadow-cyan-500/50">Login</button>
+            </a>
             {{/if}}
           </div>
     </nav>
   </header>
 
-  <main class="flex flex-col z-0">
-    <div class="absolute inset-12">
+  <main class="mb-5 flex flex-col z-0">
+    <div class="absolute my-20 inset-12">
     <!-- Your main content goes here -->
       {{{body}}}
     </div>
