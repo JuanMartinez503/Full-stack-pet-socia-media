@@ -522,6 +522,14 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 .fixed {
   position: fixed;
 }
@@ -1053,4 +1061,63 @@ video {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .sm\:invisible {
+    visibility: hidden;
+  }
+
+  .sm\:mx-1 {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+
+  .sm\:hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:invisible {
+    visibility: hidden;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  @media (min-width: 768px) {
+    @media not all and (min-width: 1280px) {
+      .lg\:md\:max-xl\:visible {
+        visibility: visible;
+      }
+    }
+  }
+
+  .lg\:visible {
+    visibility: visible;
+  }
+
+  .lg\:invisible {
+    visibility: hidden;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
+  @media not all and (min-width: 1280px) {
+    .lg\:max-xl\:visible {
+      visibility: visible;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .lg\:xl\:visible {
+      visibility: visible;
+    }
+  }
 }
