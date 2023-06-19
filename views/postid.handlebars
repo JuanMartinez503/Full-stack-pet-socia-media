@@ -8,7 +8,7 @@
   </div>
 
   <div class="mb-8">
-    <p>{{post.user.username}} : {{post.description}}</p>
+    <p><span class=" text-indigo-500">{{post.user.username}}</span> : {{post.description}}</p>
   </div>
   {{#if post.comments.length}}
   <h1 class="text-center mb-5 mt-5">Comments</h1>
@@ -57,7 +57,7 @@
               option.classList.add('hidden')
 
       input.setAttribute('type', 'text');
-      input.setAttribute('placeholder', 'Enter your search query');
+      input.setAttribute('placeholder', 'Search for pet wisdom!');
       input.classList.add('my-2', 'border', 'border-gray-800', 'rounded', 'py-2', 'px-3');
       btn.classList.add('m-1', 'bg-blue-500', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded');
       btn.textContent = 'Search';
