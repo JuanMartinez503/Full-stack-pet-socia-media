@@ -1,4 +1,4 @@
-# project-2
+# Full-Stack Pet Social Media
 
 ## Description
 ![POST (paw-st) LOGO](https://github.com/JuanMartinez503/project-2/assets/126021339/5e840919-5012-459a-bc66-a962074bf889)
