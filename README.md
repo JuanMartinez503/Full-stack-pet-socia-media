@@ -13,8 +13,8 @@ This is a full-stack application that allows a user to create an account and pos
 
 ## Table of Contents
 1. [Description](#description)
-2. [Usage](#usage)
-3. [Credits](#credits)
+2. [Installation](#installation)
+3. [Usage](#usage)
 4. [License](#license)
 5. [Questions](#questions)
 
@@ -65,10 +65,21 @@ to start up the server on localhost:3001.
 ![Screenshot 2023-06-18 at 7 30 02 PM](https://github.com/JuanMartinez503/project-2/assets/126021339/77c6e157-e793-4d5a-b079-f7082c4f4b90)
 
 
-To use via Heroku, visit:
+### To use via Heroku, visit:
+https://full-stack-pet-social-media-698fb2b195ab.herokuapp.com/ 
+
+<img width="1184" alt="Screenshot 2023-06-19 at 6 58 52 PM" src="https://github.com/JuanMartinez503/project-2/assets/126021339/090a91d0-20f4-42f4-927a-582205ac5d21">
 
 ## License
 
 ## Questions
-Find us at: (http://github.com/bentwhiskers), (http://github.com/JuanMartinez503), (http://github.com/drewkretschmar) on GitHub.
-For further questions, email one of us at: abbott1414@gmail.com, juanmartinez5678@hotmail.com, or drewkretschmar@yahoo.com
+Find us on GitHub: 
+> - (http://github.com/bentwhiskers)
+> - (http://github.com/JuanMartinez503)
+> - (http://github.com/drewkretschmar) 
+
+
+For further questions, email one of us at:
+> - abbott1414@gmail.com
+> - juanmartinez5678@hotmail.com
+> - drewkretschmar@yahoo.com
